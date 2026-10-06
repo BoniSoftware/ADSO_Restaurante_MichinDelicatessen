@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos Restaurante</title>
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+
+<body>
+    
+   
+    <form id="formPedido">
+        <div class="contenedor-principal">
+
+            <!-- CLIENTE -->
+            <div class="contenedor1">
+                <img src="assets/Michin.jpg" alt="Logo de Michin Delicatessen" class="logo">
+                <p><h2>🧾 Informacion del Cliente</h2></p>
+
+                <fieldset>
+                    <legend>Registra tus Datos</legend>
+
+                    <label for="nombre">👩🏻‍🤝‍👨🏼 Nombre</label>
+                    <input type="text" id="nombre" name="nombre"
+                        placeholder="Ingrese su nombre (Campo Requerido)" required>
+
+                    <label for="telefono">📱 Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono"
+                        placeholder="Ingrese su número telefónico (Campo Requerido)" required>
+
+                    <label for="direccion">🏠 Dirección</label>
+                    <textarea id="direccion" name="direccion"
+                        placeholder="Dirección de entrega completa (Campo Requerido)"
+                        required></textarea>
+                </fieldset>
+            </div>
+
+            <!-- PEDIDO -->
+            <div class="contenedor2">
+                <p><h2>🧾 Informacion del Pedido</h2></p>
+                <fieldset>
+                    <legend>Realiza tu Pedido</legend>
+
+                    <label for="sopas">🍲 Sopas</label>
+                    <select id="sopas" name="sopas">
+                        <option value="">Seleccione...</option>
+                        <option value="12000" data-nombre="Ajiaco">Ajiaco - $12.000</option>
+                        <option value="8000" data-nombre="Changua">Changua - $8.000</option>
+                        <option value="12000" data-nombre="Sancocho de Pescado">Sancocho de Pescado - $12.000</option>
+                        <option value="12000" data-nombre="Caldo de Costilla">Caldo de Costilla - $12.000</option>
+                        <option value="8000" data-nombre="Sopa de Pasta">Sopa de Pasta - $8.000</option>
+                        <option value="8000" data-nombre="Sopa de Verduras">Sopa de Verduras - $8.000</option>
+                        <option value="10000" data-nombre="Crema de Pollo">Crema de Pollo - $10.000</option>
+                    </select>
+
+                    <label for="platos">🍝 Plato Principal</label>
+                    <select id="platos" name="platos">
+                        <option value="">Seleccione...</option>
+                        <option value="15000" data-nombre="Bandeja Paisa">Bandeja Paisa - $15.000</option>
+                        <option value="15000" data-nombre="Arroz con pollo">Arroz con pollo - $15.000</option>
+                        <option value="21000" data-nombre="Pollo Sudado">Pollo Sudado - $21.000</option>
+                        <option value="23000" data-nombre="Pollo Asado">Pollo Asado - $23.000</option>
+                        <option value="18000" data-nombre="Churrasco">Churrasco - $18.000</option>
+                        <option value="15000" data-nombre="Pechuga Gratinada">Pechuga Gratinada - $15.000</option>
+                        <option value="12000" data-nombre="Hamburguesa Especial">Hamburguesa Especial - $12.000</option>
+                        <option value="8000" data-nombre="Pizza Personal">Pizza Personal - $8.000</option>
+                        <option value="22000" data-nombre="Lasagna">Lasagna - $22.000</option>
+                        <option value="25000" data-nombre="Salmón Grillado">Salmón Grillado - $25.000</option>
+                    </select>
+
+                    <label for="bebidas">☕ Bebidas</label>
+                    <select id="bebidas" name="bebidas">
+                        <option value="">Seleccione...</option>
+                        <option value="4000" data-nombre="Gaseosa">Gaseosa - $4.000</option>
+                        <option value="8000" data-nombre="Jugo Natural">Jugo Natural - $8.000</option>
+                        <option value="7000" data-nombre="Malteada">Malteada - $7.000</option>
+                        <option value="6000" data-nombre="Limonada Natural">Limonada Natural - $6.000</option>
+                        <option value="6000" data-nombre="Cerveza Nacional">Cerveza Nacional - $6.000</option>
+                        <option value="4000" data-nombre="Café">Café - $4.000</option>
+                        <option value="3000" data-nombre="Agua">Agua - $3.000</option>
+                    </select>
+
+                    <label for="postres">🍰 Postres</label>
+                    <select id="postres" name="postres">
+                        <option value="">Seleccione...</option>
+                        <option value="4000" data-nombre="Bola de Helado">Bola de Helado - $4.000</option>
+                        <option value="8000" data-nombre="Cheesecake">Cheesecake - $8.000</option>
+                        <option value="6000" data-nombre="Flan">Flan - $6.000</option>
+                        <option value="6000" data-nombre="Postre de TresLeches">Postre de TresLeches - $6.000</option>
+                        <option value="6000" data-nombre="Torta de Chocolate">Torta de Chocolate - $6.000</option>
+                        <option value="9000" data-nombre="Creappe">Creappe - $9.000</option>
+                        <option value="9000" data-nombre="Waffle">Waffle - $9.000</option>
+                        <option value="7000" data-nombre="Brownie">Brownie - $7.000</option>
+                    </select>
+
+                    <label for="adicionales">🥙 Adicionales</label>
+                    <select id="adicionales" name="adicionales">
+                        <option value="">Seleccione...</option>
+                        <option value="8000" data-nombre="Papas Fritas">Papas Fritas - $8.000</option>
+                        <option value="8000" data-nombre="Papas Criollas">Papas Criollas - $8.000</option>
+                        <option value="4000" data-nombre="Ensalada del huerto">Ensalada del huerto - $4.000</option>
+                        <option value="3000" data-nombre="Huevo Frito">Huevo Frito - $3.000</option>
+                        <option value="3000" data-nombre="Guacamole">Guacamole - $3.000</option>
+                    </select>
+
+                    <label for="observaciones">Observaciones</label>
+                    <textarea id="observaciones" name="observaciones"
+                        placeholder="Escriba aquí alguna indicación adicional..."></textarea>
+                </fieldset>
+            </div>
+
+            <!-- RESUMEN -->
+            <div class="contenedor3">
+                <p><h2>🧾 Resumen del Pedido</h2></p><hr>
+                <div id="resumenPedido"></div>
+                
+                <div class="resumen">
+                    <div id="detallePedido">
+                        No hay productos seleccionados
+                    </div>
+                    <hr><p><h3>Total a pagar: $<span id="total">0</span></h3></p>
+                </div>
+           
+                <input type="submit" id="btnEnviar" value="Enviar Pedido">
+                <p></p>
+                <p id="mensaje"></p><hr><p></p>
+                <div class="historial">
+                    <h2>📋 Lista de Pedidos Guardados</h2>
+                    <div id="listaPedidos"></div>
+                </div>
+                <p></p>  
+            </div>
+        </div>
+    </form>
+    <script src="App.js"></script>
+</body>
+</html>
