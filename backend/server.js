@@ -346,7 +346,7 @@ async function iniciarServidor() {
     });
   } catch (error) {
     console.error("No se pudo conectar a MySQL:");
-    console.error(error.message);
+    console.error(error);
     process.exit(1);
   }
 }
