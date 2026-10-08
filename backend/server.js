@@ -336,11 +336,14 @@ app.use((req, res) => {
 });
 
 async function iniciarServidor() {
-  console.log("CONFIGURACIÓN DE RAILWAY:");
+  console.log("===== VARIABLES RECIBIDAS POR NODE =====");
+  console.log("NODE_ENV:", process.env.NODE_ENV);
   console.log("DB_HOST:", process.env.DB_HOST);
   console.log("DB_PORT:", process.env.DB_PORT);
   console.log("DB_USER:", process.env.DB_USER);
   console.log("DB_NAME:", process.env.DB_NAME);
+  console.log("DB_PASSWORD EXISTE:", !!process.env.DB_PASSWORD);
+  console.log("========================================");
 
   try {
     const conexion = await pool.getConnection();
