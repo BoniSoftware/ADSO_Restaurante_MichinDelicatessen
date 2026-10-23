@@ -1,51 +1,56 @@
-
 const mysql = require("mysql2/promise");
 require("dotenv").config();
 
 const produccion = process.env.NODE_ENV === "production";
 
-const host =
-  process.env.DB_HOST ||
-  process.env.MYSQLHOST ||
-  (produccion ? undefined : "localhost");
+const config = {
+  host:
+    process.env.DB_HOST ||
+    process.env.MYSQLHOST ||
+    (produccion ? undefined : "localhost"),
 
-const port = Number(
-  process.env.DB_PORT ||
-  process.env.MYSQLPORT ||
-  (produccion ? undefined : 3305)
-);
+  port: Number(
+    process.env.DB_PORT ||
+    process.env.MYSQLPORT ||
+    (produccion ? 3306 : 3305)
+  ),
 
-const user =
-  process.env.DB_USER ||
-  process.env.MYSQLUSER ||
-  (produccion ? undefined : "root");
+  user:
+    process.env.DB_USER ||
+    process.env.MYSQLUSER ||
+    (produccion ? undefined : "root"),
 
-const password =
-  process.env.DB_PASSWORD ??
-  process.env.MYSQLPASSWORD ??
-  "";
+  password:
+    process.env.DB_PASSWORD ??
+    process.env.MYSQLPASSWORD ??
+    "",
 
-const database =
-  process.env.DB_NAME ||
-  process.env.MYSQLDATABASE ||
-  (produccion ? undefined : "restaurante_michin");
+  database:
+    process.env.DB_NAME ||
+    process.env.MYSQLDATABASE ||
+    (produccion ? undefined : "restaurante_michin"),
 
-if (produccion && (!host || !user || !database || !password)) {
-  throw new Error(
-    "Faltan variables de conexión MySQL en el entorno de producción."
-  );
-}
-
-const pool = mysql.createPool({
-  host,
-  port,
-  user,
-  password,
-  database,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
   charset: "utf8mb4"
-});
+};
+
+if (produccion) {
+  const faltantes = [];
+
+  if (!config.host) faltantes.push("DB_HOST/MYSQLHOST");
+  if (!config.user) faltantes.push("DB_USER/MYSQLUSER");
+  if (!config.password) faltantes.push("DB_PASSWORD/MYSQLPASSWORD");
+  if (!config.database) faltantes.push("DB_NAME/MYSQLDATABASE");
+
+  if (faltantes.length > 0) {
+    throw new Error(
+      `Faltan variables MySQL: ${faltantes.join(", ")}`
+    );
+  }
+}
+
+const pool = mysql.createPool(config);
 
 module.exports = pool;
